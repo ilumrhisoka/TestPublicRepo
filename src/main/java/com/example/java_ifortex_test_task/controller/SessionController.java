@@ -1,6 +1,7 @@
 package com.example.java_ifortex_test_task.controller;
 
 import com.example.java_ifortex_test_task.dto.SessionResponseDTO;
+import com.example.java_ifortex_test_task.entity.DeviceType;
 import com.example.java_ifortex_test_task.service.SessionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class SessionController {
     private final SessionService sessionService;
 
     @GetMapping("/first-desktop")
-    public ResponseEntity<SessionResponseDTO> getFirstDesktopSession() {
-        return ResponseEntity.ok(sessionService.getFirstDesktopSession());
+    public ResponseEntity<SessionResponseDTO> getFirstDesktopSession(DeviceType deviceType) {
+        return ResponseEntity.ok(sessionService.getFirstDesktopSession(deviceType));
     }
 
     @GetMapping("/active-users-ended-before-2025")
